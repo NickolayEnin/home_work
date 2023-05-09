@@ -1,6 +1,5 @@
 import com.sun.tools.jconsole.JConsoleContext;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Home_Work3 {
@@ -58,7 +57,7 @@ public class Home_Work3 {
             } else {
                 wrongCount += 1;
             }
-            
+            //branch hw4
             //Выводим общий результат
             System.out.println("Результат: правильно " + correctCount + ", неправильно " + wrongCount);
         }
