@@ -28,23 +28,10 @@ public class Home_Work3 {
 
         Scanner scanner = new Scanner(System.in);
         //Вывод поросов и ответов
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < questions.length; i++) {
             System.out.println(questions[i]);
-            if (i == 0) {
-                int e = 0;
-                for (int j = 0; j < 4; j++) {
-                    System.out.println(answerOptions[e][j]);
-                }
-            } else if (i == 1) {
-                int e = 1;
-                for (int j = 0; j < 4; j++) {
-                    System.out.println(answerOptions[e][j]);
-                }
-            } else {
-                int e = 2;
-                for (int j = 0; j < 4; j++) {
-                    System.out.println(answerOptions[e][j]);
-                }
+            for (int j = 0; j < answerOptions[i].length; j++) {
+                System.out.println(answerOptions[i][j]);
             }
             System.out.print("Ваш ответ: ");
             // Проверка ответов и увеличение счетчиков
@@ -55,9 +42,11 @@ public class Home_Work3 {
             } else {
                 wrongCount += 1;
             }
-            //branch hw4
-            //Выводим общий результат
-            System.out.println("Результат: правильно " + correctCount + ", неправильно " + wrongCount);
         }
+        //Выводим общий результат
+        System.out.println("Результат: правильно " + correctCount + ", неправильно " + wrongCount);
+
     }
 }
+
+
