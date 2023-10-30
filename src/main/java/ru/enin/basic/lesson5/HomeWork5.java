@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class HomeWork5 {
     public static void main(String[] args) {
-        firstMassive(5, 4, 2, 10, 20, 3);
+        firstMassive(6, 4, 2, 10, 20, 3);
         secondMassive();
         thirdMassive();
         fourthMassive();
