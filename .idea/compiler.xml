@@ -12,5 +12,8 @@
         <module name="java-basic-lesson3" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="java-basic" target="19" />
+    </bytecodeTargetLevel>
   </component>
 </project>
