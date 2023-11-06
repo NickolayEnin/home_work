@@ -5,9 +5,9 @@ import java.util.Arrays;
 public class HomeWork5 {
     public static void main(String[] args) {
         firstMassive(6, 4, 2, 10, 20, 3);
-        secondMassive();
-        thirdMassive();
-        fourthMassive();
+        secondMassive(1, 3, 4, 56, 7, 1, 2, 2);
+        thirdMassive(2,4,6,7,1,2,3,4,5);
+        fourthMassive(12,2,42,5,7,9,1,24,5,2);
     }
 
     public static void firstMassive(int... sum) {
@@ -20,53 +20,47 @@ public class HomeWork5 {
         System.out.println(result);
     }
 
-    public static void secondMassive() {
+    public static void secondMassive(int... b) {
         int a = 7;
-        int[] b = new int[20];
         for (int i = 0; i < b.length; i++) {
             b[i] = a;
         }
         System.out.println(Arrays.toString(b));
     }
 
-    public static void thirdMassive() {
+    public static void thirdMassive(int... b) {
         int a = 7;
-        int[] b = new int[10];
         for (int i = 0; i < b.length; i++) {
             b[i] += a;
         }
         System.out.println(Arrays.toString(b));
     }
 
-    public static void fourthMassive() {
-        int[] inp = {3, 5, 3, 4, 5, 1, 4, 2};
-        int n = inp.length;
+    public static void fourthMassive(int... inp) {
         int right = 0;
         int left = 0;
-        int[] a = new int[n / 2];
-        int[] b = new int[n - a.length];
 
-        for (int i = 0; i < n; i++) {
-            if (i < a.length) {
-                a[i] = inp[i];
-            } else {
-                b[i - a.length] = inp[i];
+        if (inp.length % 2 == 0) {
+            for (int i = 0; i < inp.length; i++) {
+                if (i < inp.length / 2) {
+                    left += inp[i];
+                } else {
+                    right += inp[i];
+                }
             }
+        } else {
+            System.out.println("массив не четный");
+            return;
         }
-        for (int i = 0; i < a.length; i++){
-            left += a[i];
-        }
-        for (int i = 0; i < b.length; i++) {
-            right += b[i];
-        }
-        if (right < left){
+
+        if (right < left) {
             System.out.println("левая сторона больше");
         } else {
             System.out.println("правая сторона больше");
         }
 
-        System.out.println(Arrays.toString(a) + " левая сторона" + " " + left);
-        System.out.println(Arrays.toString(b) + " правая сторона" + " " + right);
+        System.out.println(" левая сторона" + " " + left);
+        System.out.println(" правая сторона" + " " + right);
 
     }
 }
