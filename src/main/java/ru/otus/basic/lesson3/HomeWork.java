@@ -28,7 +28,7 @@ public class HomeWork {
         int data = scanner.nextInt();
         if (data <= 10) {
             System.out.println("красный");
-        } else if (data > 10 && data <= 20) {
+        } else if (data <= 20) {
             System.out.println("желтый");
         } else {
             System.out.println("зеленый");
