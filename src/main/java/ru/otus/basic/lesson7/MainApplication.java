@@ -4,15 +4,15 @@ import java.util.Arrays;
 
 public class MainApplication {
     public static void main(String[] args) {
-        int[][] a = {{2, 1, -3, 4}, {2, 2, 2, 2}, {1, 3, 10, 4}, {1, 3, 4, 4}};
+        int[][] a = {{-2, -1, -3, -4}, {-2, -2, -2, -2}, {-1, -3, -10, -4}, {-1, -3, -4, -4}};
         int[][] b = {{2, 4, -3, 4}, {2, 1, 2, 2}};
         int[][] array = new int[0][0];
-        System.out.println("сумма положительных эл-ов " + sumOfPositiveElements(a));
-        print(array(10));
-        System.out.println("поиск максимума " + findMax(a));
-        print(array0(a));
+//        System.out.println("сумма положительных эл-ов " + sumOfPositiveElements(a));
+//        print(array(10));
+//        System.out.println("поиск максимума " + findMax(a));
+//        print(array0(a));
         System.out.println("сумма второй строки " + sumSecondLine(b));
-        System.out.println(sumSecondLine(array));
+//        System.out.println(sumSecondLine(array));
 
 
 
@@ -81,7 +81,7 @@ public class MainApplication {
     }
 
     public static int findMax(int[][] array) {
-        int max = Integer.MIN_VALUE;
+        int max = array[0][0];
         for (int i = 0; i < array.length; i++) {
             for (int j = 0; j < array[i].length; j++) {
                 if (max < array[i][j]) {
@@ -95,12 +95,11 @@ public class MainApplication {
     public static int sumSecondLine(int[][] array) {
         int sum = 0;
         if (array.length < 2){
-            sum =-1;
-            return sum;
+            return -1;
         }
         for (int i = 0; i < array.length; i++) {
             if (i == 1) {
-                for (int j = 0; j < array.length; j++) {
+                for (int j = 0; j < array[i].length; j++) {
                     sum += array[i][j];
                 }
             }
