@@ -9,6 +9,7 @@ public class Cat extends Animal {
         this.usedStamina = usedStamina;
     }
 
+    @Override
     public int swim(int distance) {
         System.out.println(-1);
         return 0;
