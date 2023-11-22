@@ -1,12 +1,12 @@
 package ru.otus.basic.lesson11oop2.animals;
 
 public class Cat extends Animal {
-    public Cat(String name, String kindOfAnimal, int speedRun, int stamina, int usedStamina) {
+    public Cat(String name, String kindOfAnimal, int speedRun, int stamina, int usedRunStamina) {
         this.name = name;
         this.kindOfAnimal = kindOfAnimal;
         this.speedRun = speedRun;
         this.stamina = stamina;
-        this.usedStamina = usedStamina;
+        this.usedRunStamina = usedRunStamina;
     }
 
     @Override
@@ -20,7 +20,7 @@ public class Cat extends Animal {
         System.out.println("скорость бега: " + speedRun);
         System.out.println("выносливость: " + stamina);
         System.out.println(-1 + " плавать не умеет");
-        System.out.println("расход выносливости: " + usedStamina);
+        System.out.println("расход выносливости бег: " + usedRunStamina);
     }
 
 }
