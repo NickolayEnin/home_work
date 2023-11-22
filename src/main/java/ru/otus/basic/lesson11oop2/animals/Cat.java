@@ -14,11 +14,12 @@ public class Cat extends Animal {
         System.out.println(-1);
         return 0;
     }
+    @Override
     public void info(){
         System.out.println("имя: " + name);
         System.out.println("скорость бега: " + speedRun);
         System.out.println("выносливость: " + stamina);
-        System.out.println(-1 + "плавать не умеет");
+        System.out.println(-1 + " плавать не умеет");
         System.out.println("расход выносливости: " + usedStamina);
     }
 
