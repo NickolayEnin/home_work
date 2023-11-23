@@ -11,8 +11,8 @@ public class Cat extends Animal {
 
     @Override
     public int swim(int distance) {
-        System.out.println(-1);
-        return 0;
+        System.out.println("Коты не умеют плавать");
+        return -1;
     }
     @Override
     public void info(){

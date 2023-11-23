@@ -19,7 +19,7 @@ public class Animal {
             return stamina;
         }
         System.out.println("не хватает выносливости: " + (stamina - (usedRunStamina * distance)));
-        return stamina;
+        return -1;
     }
 
     public int swim(int distance) {
@@ -30,8 +30,8 @@ public class Animal {
             System.out.println(kindOfAnimal + " " + name + " " + "проплыл дистанцию в: " + distance + " метров за " + time + " секунд");
             return stamina;
         }
-        System.out.println(-1 + "не хватает выносливости: " + (stamina - (usedSwimStamina * distance)));
-        return stamina;
+        System.out.println("не хватает выносливости: " + (stamina - (usedSwimStamina * distance)));
+        return -1;
     }
 
     public void info() {
