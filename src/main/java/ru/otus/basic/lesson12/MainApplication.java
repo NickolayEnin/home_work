@@ -14,6 +14,7 @@ public class MainApplication {
             cats[i].info();
             cats[i].eatCat(plate);
             plate.info();
+            cats[i].info();
         }
     }
 }
