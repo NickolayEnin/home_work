@@ -26,7 +26,7 @@ public class Cat {
     }
 
     public void eatCat(Plate plate) {
-        if (satiety == true){
+        if (satiety){
             System.out.println("кот " + getName() + " не голоден");
             return;
         }
