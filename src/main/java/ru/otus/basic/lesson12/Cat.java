@@ -11,14 +11,6 @@ public class Cat {
         this.maxSatiety = maxSatiety;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public int getMaxSatiety() {
-        return maxSatiety;
-    }
-
     public void info() {
         System.out.println("имя: " + name);
         System.out.println("сытость: " + satiety);
@@ -26,17 +18,17 @@ public class Cat {
     }
 
     public void eatCat(Plate plate) {
-        if (satiety){
-            System.out.println("кот " + getName() + " не голоден");
+        if (satiety) {
+            System.out.println("кот " + name + " не голоден");
             return;
         }
         if (maxSatiety > plate.currentFood) {
-            System.out.println("Кот " + getName() + " не поел, недостаточно еды");
+            System.out.println("Кот " + name + " не поел, недостаточно еды");
             plate.addFood(20);
             return;
         }
         plate.reducingFood(maxSatiety);
         satiety = true;
-        System.out.println("кот " + getName() + " поел  еды в миске: " + plate.currentFood);
+        System.out.println("кот " + name + " поел  еды в миске: " + plate.currentFood);
     }
 }
