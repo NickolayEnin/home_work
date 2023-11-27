@@ -11,9 +11,11 @@ public class MainApplication {
                 new Cat("Barsik4", 60),
         };
         for (int i = 0; i < cats.length; i++) {
-            cats[i].info();
+//            cats[i].info();
             cats[i].eatCat(plate);
-            plate.info();
+//            plate.info();
+//            cats[i].info();
+            cats[i].eatCat(plate);
             cats[i].info();
         }
     }
