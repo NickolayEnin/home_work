@@ -29,6 +29,7 @@ public class Cat {
         }
         plate.reducingFood(maxSatiety);
         satiety = true;
+        maxSatiety = 0;
         System.out.println("кот " + name + " поел  еды в миске: " + plate.currentFood);
     }
 }

@@ -26,8 +26,7 @@ public class Plate {
     }
 
     public void info() {
-        System.out.println(maxFood);
-        System.out.println(currentFood);
+        System.out.println("еды в миске: " + currentFood);
     }
 
 }

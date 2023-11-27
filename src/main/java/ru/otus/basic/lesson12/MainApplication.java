@@ -11,12 +11,16 @@ public class MainApplication {
                 new Cat("Barsik4", 60),
         };
         for (int i = 0; i < cats.length; i++) {
-//            cats[i].info();
-            cats[i].eatCat(plate);
-//            plate.info();
-//            cats[i].info();
-            cats[i].eatCat(plate);
+            plate.info();
             cats[i].info();
+            cats[i].eatCat(plate);
+        }
+        System.out.println("=".repeat(30));
+        for (int i = 0; i < cats.length; i++) {
+            plate.info();
+            cats[i].info();
+            cats[i].eatCat(plate);
+
         }
     }
 }
