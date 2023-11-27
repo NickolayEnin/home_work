@@ -13,6 +13,7 @@ public class MainApplication {
         for (int i = 0; i < cats.length; i++) {
             cats[i].info();
             cats[i].eatCat(plate);
+            plate.info();
         }
     }
 }

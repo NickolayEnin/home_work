@@ -28,6 +28,7 @@ public class Cat {
     public void eatCat(Plate plate) {
         if (maxSatiety > plate.currentFood) {
             System.out.println("Кот " + getName() + " не поел, недостаточно еды");
+            plate.addFood(20);
             return;
         }
         plate.reducingFood(maxSatiety);

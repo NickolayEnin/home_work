@@ -14,7 +14,7 @@ public class Plate {
             System.out.println("переполнение миски ");
             return currentFood;
         }
-        return currentFood + add;
+        return currentFood += add;
     }
 
     public boolean reducingFood(int eat) {
