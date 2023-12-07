@@ -1,22 +1,25 @@
 package ru.otus.basic.lesson13;
 
-public class Locality {
-    String name;
-    int complexity;
-    int distanse;
+public enum Locality {
+    PLAIN(1,150),
+    FOREST(2,100),
+    SWAMP(3,100);
 
 
-    public Locality(String name, int complexity, int distanse) {
-        this.name = name;
+   private int complexity;
+   private int distanse;
+
+    public int getComplexity() {
+        return complexity;
+    }
+
+    public int getDistanse() {
+        return distanse;
+    }
+
+    Locality(int complexity, int distanse) {
         this.complexity = complexity;
         this.distanse = distanse;
     }
 
-    public String getName() {
-        return name;
-    }
-
-//    public boolean ride(Transport transport) {
-//        return transport.move(distanse, complexity, name);
-//    }
 }

@@ -1,7 +1,7 @@
 package ru.otus.basic.lesson13;
 
 public class Car implements Transport {
-    public final int CROSSCOUNTRYABILITY = 1;
+    public final int CROSS_COUNTRY_ABILITY = 1;
     String brand;
     int petrol;
     int usedPetrol;
@@ -20,7 +20,7 @@ public class Car implements Transport {
     }
 
     @Override
-    public boolean move(int distance, int locality, String localityName, String currentTransport, int stamina, int usedStamina) {
+    public boolean move(Locality locality,String currentTransport, int petrol, int usedPetrol) {
         if (currentTransport == null) {
             System.out.println("идет пешком");
             return true;
@@ -29,17 +29,17 @@ public class Car implements Transport {
             System.out.println("не тот транспорт, что выбрал человек");
             return false;
         }
-        if (CROSSCOUNTRYABILITY < locality) {
-            System.out.println(brand + " сложная трасса не проехала дистанцию");
+        if (CROSS_COUNTRY_ABILITY < locality.getComplexity()) {
+            System.out.println(brand + " сложная трасса не проехала дистанцию " + locality.name());
             return false;
         }
-        petrol = petrol - (distance * usedPetrol);
+        petrol = petrol - (locality.getDistanse() * usedPetrol);
         if (petrol >= 0) {
-            int time = distance / speed;
-            System.out.println(brand + " проехала дистанцию " + localityName + currentTransport);
+            int time = locality.getDistanse() / speed;
+            System.out.println(brand + " проехала дистанцию " + locality.name());
             return true;
         }
-        System.out.println(brand + " не хватило топлива на дистанцию " + localityName);
+        System.out.println(brand + " не хватило топлива на дистанцию " + locality.name());
         return false;
     }
 

@@ -1,7 +1,7 @@
 package ru.otus.basic.lesson13;
 
 public class Bicycle implements Transport {
-    public final int CROSSCOUNTRYABILITY = 2;
+    public final int CROSS_COUNTRY_ABILITY = 2;
     String model;
     int speed;
 
@@ -16,7 +16,7 @@ public class Bicycle implements Transport {
     }
 
     @Override
-    public boolean move(int distance, int locality, String localityName, String currentTransport, int stamina, int usedStamina) {
+    public boolean move(Locality locality, String currentTransport, int stamina, int usedStamina) {
         if (currentTransport == null) {
             System.out.println("идет пешком");
             return true;
@@ -25,17 +25,18 @@ public class Bicycle implements Transport {
             System.out.println("не тот транспорт, что выбрал человек");
             return false;
         }
-        if (CROSSCOUNTRYABILITY < locality) {
-            System.out.println(model + " сложная трасса не проехала дистанцию ");
+        if (CROSS_COUNTRY_ABILITY < locality.getComplexity()) {
+            System.out.println(model + " сложная трасса не проехала дистанцию " + locality.name());
             return false;
         }
-        stamina = stamina - (distance * (usedStamina / 2));
+        stamina = stamina - (locality.getDistanse() * (usedStamina / 2));
         if (stamina >= 0) {
-            int time = distance / speed;
-            System.out.println(model + " проехала дистанцию");
+            int time = locality.getDistanse() / speed;
+            System.out.println(model + " проехала дистанцию " + locality.name());
             return true;
         }
-        System.out.println(model + " не хватило выносливости на дистанцию");
+        System.out.println(model + " не хватило выносливости на дистанцию " + locality.name());
         return false;
     }
+
 }

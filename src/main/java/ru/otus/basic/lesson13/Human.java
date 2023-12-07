@@ -1,7 +1,7 @@
 package ru.otus.basic.lesson13;
 
 
-public class Human {
+public class Human{
     protected String name;
     protected String currentTransport;
     protected int stamina;
@@ -12,7 +12,7 @@ public class Human {
         this.name = name;
         this.currentTransport = null;
         this.stamina = 100;
-        this.usedStamina = 10;
+        this.usedStamina = 1;
         this.speed = speed;
     }
 
@@ -45,7 +45,7 @@ public class Human {
     }
 
     public boolean ride(Transport transport, Locality locality) {
-        return transport.move(locality.distanse, locality.complexity, locality.name, currentTransport, stamina, usedStamina);
+        return transport.move(locality, currentTransport, stamina, usedStamina);
 
     }
 
