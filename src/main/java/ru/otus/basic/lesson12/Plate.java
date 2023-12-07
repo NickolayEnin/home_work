@@ -1,12 +1,16 @@
 package ru.otus.basic.lesson12;
 
 public class Plate {
-    protected int maxFood;
-    protected int currentFood;
+    private int maxFood;
+    private int currentFood;
 
     public Plate(int maxFood) {
         this.maxFood = maxFood;
         this.currentFood = maxFood;
+    }
+
+    public int getCurrentFood() {
+        return currentFood;
     }
 
     public int addFood(int add) {
