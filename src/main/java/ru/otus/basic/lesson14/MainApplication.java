@@ -3,23 +3,17 @@ package ru.otus.basic.lesson14;
 public class MainApplication {
     public static void main(String[] args) throws AppArraySizeException {
         String ar[][] = {
-                {"1", "2", "3", "4" },
-                {"1", "fdas", "3", "4" },
-                {"1", "2", "3", "4" },
-                {"1", "2", "3", "4" }
+                {"1", "2", "3", "4"},
+                {"1", "2", "3", "4"},
+                {"1", "2", "3", "4"},
+                {"1", "2", "3", "4"}
         };
-        try {
-            sumStringArray(ar);
-        } catch (NumberFormatException e) {
-//            for (int i = 0; i < ar.length; i++) {
-//                for (int j = 0; j < ar[i].length; j++) {
-//                }
-//            }
-            throw new AppArrayDataException(e.getMessage());
-        }
+
+        System.out.println(sumStringArray(ar));
+
     }
 
-    public static void sumStringArray(String[][] array) throws AppArraySizeException {
+    public static int sumStringArray(String[][] array) throws AppArraySizeException {
         int sum = 0;
         if (array.length != 4) {
             throw new AppArraySizeException("неверный размер");
@@ -29,32 +23,28 @@ public class MainApplication {
                 throw new AppArraySizeException("неверный размер");
             }
             for (int j = 0; j < array[i].length; j++) {
-                int x = Integer.parseInt(array[i][j]);
-                sum += x;
+                try {
+                    int x = Integer.parseInt(array[i][j]);
+                    sum += x;
+                } catch (NumberFormatException e) {
+                    throw new AppArrayDataException("строка " + String.valueOf(i + 1) + " столбец " + String.valueOf(j + 1));
+                } catch (Exception e) {
+                    System.out.println("аяяй");
+                }
             }
-            System.out.println(sum);
         }
+        return sum;
     }
 
     static class AppArraySizeException extends Exception {
         public AppArraySizeException(String message) {
             super(message);
         }
-
-        @Override
-        public String getMessage() {
-            return "не верный размер массива";
-        }
     }
 
     static class AppArrayDataException extends NumberFormatException {
-        public AppArrayDataException(String s) {
-            super(s);
-        }
-
-        @Override
-        public String getMessage() {
-            return "не верный формат в ячейке";
+        public AppArrayDataException(String message) {
+            super(message);
         }
     }
 }
