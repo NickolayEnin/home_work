@@ -27,11 +27,11 @@ public class PhoneBook {
     }
 
 
-    public boolean containsPhoneNumber(int num) {
+    public boolean containsPhoneNumber(Integer num) {
         for (Map.Entry<String, Set<Contact>> entry : phoneBook.entrySet()) {
+            Set<Integer> number = Set.of(num);
             for (Contact contact : entry.getValue()) {
-                int num1 = contact.getNumber();
-                if (num1 == num) {
+                if (number.contains(contact.getNumber())) {
                     return true;
                 }
             }
@@ -40,5 +40,6 @@ public class PhoneBook {
     }
 
 }
+
 
 
