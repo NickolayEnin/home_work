@@ -1,12 +1,15 @@
 package ru.otus.basic.lesson16;
- class Contact{
-     private int number;
 
-     public Contact(int number) {
+import java.util.Set;
+
+public class Contact{
+     private Integer number;
+
+     public Contact(Integer number) {
          this.number = number;
      }
 
-     public int getNumber() {
-         return number;
-     }
- }
+    public Integer getNumber() {
+        return number;
+    }
+}

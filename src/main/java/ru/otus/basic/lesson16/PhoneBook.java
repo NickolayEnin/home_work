@@ -1,54 +1,44 @@
 package ru.otus.basic.lesson16;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class PhoneBook {
-    private static final Map<String, List<Contact>> phoneBook = new HashMap<>();
+    private final Map<String, Set<Contact>> phoneBook = new HashMap<>();
 
-    public static void main(String[] args) {
-        add("Ivanov", new Contact(12312312));
-        add("Ivanov", new Contact(123123));
-        find("Ivanov", phoneBook);
-        containsPhoneNumber(123123, phoneBook);
-    }
-
-    public static void add(String firstName, Contact contact) {
+    public void add(String firstName, Contact contact) {
         if (!phoneBook.containsKey(firstName)) {
-            phoneBook.put(firstName, new ArrayList<Contact>());
+            phoneBook.put(firstName, new HashSet<Contact>());
         }
         phoneBook.get(firstName).add(contact);
     }
 
-    public static void find(String name, Map<String, List<Contact>> phoneBook) {
-        for (Map.Entry<String, List<Contact>> entry : phoneBook.entrySet()) {
+    public List<Contact> find(String name) {
+        for (Map.Entry<String, Set<Contact>> entry : phoneBook.entrySet()) {
+            List<Contact> contacts = new ArrayList<>();
             if (name.equals(entry.getKey())) {
-                System.out.print(name + ": ");
                 for (Contact number : entry.getValue()) {
-                    System.out.print(number.getNumber() + "; ");
+                    contacts.add(number);
+                    System.out.println(number.getNumber());
                 }
-            } else {
-                System.out.println("такого контакта не существует");
+                return contacts;
             }
-            System.out.println();
         }
+        return null;
     }
 
-    public static void containsPhoneNumber(int num, Map<String, List<Contact>> phoneBook) {
-        for (Map.Entry<String, List<Contact>> entry : phoneBook.entrySet()) {
+
+    public boolean containsPhoneNumber(int num) {
+        for (Map.Entry<String, Set<Contact>> entry : phoneBook.entrySet()) {
             for (Contact contact : entry.getValue()) {
                 int num1 = contact.getNumber();
                 if (num1 == num) {
-                    System.out.println("номер есть");
-                    break;
+                    return true;
                 }
-                System.out.println("213");
             }
-
         }
+        return false;
     }
+
 }
 
 
