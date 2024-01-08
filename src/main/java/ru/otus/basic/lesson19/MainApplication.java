@@ -27,9 +27,8 @@ public class MainApplication {
         }
         System.out.println();
         Scanner scanner1 = new Scanner(System.in);
-        String stroke = scanner1.nextLine();
 
-        String data = stroke;
+        String data = scanner1.nextLine();
         try (var out = new BufferedOutputStream(new FileOutputStream("src/" + name, true))) {
             byte[] buffer = data.getBytes(StandardCharsets.UTF_8);
             for (int i = 0; i < buffer.length; i++) {
