@@ -3,17 +3,14 @@ package ru.otus.enin.lesson17;
 import java.util.Deque;
 import java.util.LinkedList;
 
-public class MyStack extends MyLinkedList {
-    private final Deque<Integer> deque = new LinkedList();
-
-    public void push(int num) {
-        deque.push(num);
-        System.out.println(deque);
+public class MyStack<E> extends MyLinkedList{
+    public boolean push(E e) {
+        linkLast(e);
+        return true;
+    }
+    public E pop() {
+        return (E) removeLast();
     }
 
-    public void pop() {
-        deque.pop();
-        System.out.println(deque);
-    }
 }
 
