@@ -1,6 +1,5 @@
 package ru.otus.enin.lesson17;
 
-import java.util.LinkedList;
 import java.util.NoSuchElementException;
 
 public class MyLinkedList<E> {
