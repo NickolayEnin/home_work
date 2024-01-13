@@ -1,12 +1,15 @@
 package ru.otus.basic.lesson16;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class PhoneBook {
     private final Map<String, List<Contact>> phoneBook = new HashMap<>();
 
     public void add(String firstName, Contact contact) {  //если делать как вы прислали, то выдает ошибку при компиляции, а если сделать так, то он не создает новый контакт, не могу понять почему, ведь этот метод должен создавать если
-                                                            //нет такого key или я неправильно понял работу этого метода?
+        //нет такого key или я неправильно понял работу этого метода?
         phoneBook.compute(firstName, (key, val) -> {
             if (val == null) {
                 val = new ArrayList<>();
@@ -16,16 +19,21 @@ public class PhoneBook {
         });
     }
 
+    public void print(PhoneBook phoneBook1) {
+        for (Map.Entry<String, List<Contact>> entry : phoneBook.entrySet()) {
+            System.out.println(entry.getKey());
+        }
+    }
+
     public List<Contact> find(String name) {
         for (Map.Entry<String, List<Contact>> entry : phoneBook.entrySet()) {
             List<Contact> contacts = new ArrayList<>();
             if (name.equals(entry.getKey())) {
                 contacts.addAll(entry.getValue());
                 System.out.println(contacts);
+                return contacts;
             }
-            return contacts;
         }
-
         return null;
     }
 
