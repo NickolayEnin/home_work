@@ -18,7 +18,7 @@ public class MainApplication {
         int counter = 0;
         try (BufferedReader reader = new BufferedReader(new FileReader("target/" + name))) {
             String line;
-            List<String> lines = new ArrayList<String>();
+            List<String> lines = new ArrayList<>();
             while ((line = reader.readLine()) != null) {
                 String[] l = line.split(" ");
                 lines.addAll(Arrays.asList(l));
