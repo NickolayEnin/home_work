@@ -21,11 +21,11 @@ public class Fruit {
     }
 
     public List<Integer> weightReturn(List<Fruit> fruits) {
-        List<Integer> weight = new ArrayList<>();
+        List<Integer> w = new ArrayList<>();
         for (int i = 0; i < fruits.size(); i++) {
-            weight.add(fruits.get(i).getWeight());
+            w.add(fruits.get(i).getWeight());
         }
-        return weight;
+        return w;
     }
 
 }

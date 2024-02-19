@@ -29,22 +29,19 @@ public class Box<T extends Fruit> {
 
     public List<String> contentBox() {
         List<String> name = new ArrayList<>();
-        for (int i = 0; i < fruits.size(); i++) {
-            name.add(fruits.get(i).getName());
+        for (T fruit : fruits) {
+            name.add(fruit.getName());
         }
         return name;
     }
 
-    public boolean compare(Box o) {
-        if (this.weight() == o.weight()) {
-            return true;
-        }
-        return false;
+    public boolean compare(Box <? extends T> o) {
+        return this.weight() == o.weight();
     }
 
     public void combine(Box<? extends T> o) {
         for (int i = 0; i < o.fruits.size(); i++) {
-            this.add((T) o.fruits.get(i));
+            this.add(o.fruits.get(i));
         }
     }
 }
