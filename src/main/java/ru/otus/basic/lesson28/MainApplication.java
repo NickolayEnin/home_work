@@ -3,15 +3,12 @@ package ru.otus.basic.lesson28;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class MainApplication {
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
         var file = new File("target/");
-        System.out.println("список имеющихся файлов: " + Arrays.stream(file.listFiles()).map(it -> it.getName()).toList());
+        System.out.println("список имеющихся файлов: " + Arrays.stream(Objects.requireNonNull(file.listFiles())).map(File::getName).toList());
         System.out.println("какой файл загрузить?");
         Scanner scanner = new Scanner(System.in);
         String name = scanner.nextLine();
