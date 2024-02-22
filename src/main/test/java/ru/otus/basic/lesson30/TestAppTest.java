@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class SomethingTests {
+public class TestAppTest {
     private TestApp testApp;
     private Integer[] ar1 = {2, 3, 4, 5};
     private Integer[] arPart = {2, 2, 2};
@@ -37,7 +37,7 @@ public class SomethingTests {
                     Assertions.assertEquals(false, testApp.containArrays(ar1));
                 },
                 () -> {
-                    Assertions.assertEquals(true, testApp.containArrays(ar1));
+                    Assertions.assertEquals(false, testApp.containArrays(arPart));
                 }
         );
     }

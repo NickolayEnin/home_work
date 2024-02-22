@@ -3,7 +3,7 @@ package ru.otus.basic.lesson30;
 
 import java.util.Arrays;
 
-public class TestApp extends RuntimeException {
+public class TestApp{
 
     public Integer[] partArrays(Integer[] ar) {
 
@@ -27,19 +27,7 @@ public class TestApp extends RuntimeException {
     }
 
     public boolean containArrays(Integer[] ar) {
-        for (int i = 0; i < ar.length; i++) {
-            if (0 >= ar[i]) {
-                return false;
-            }
-            if (ar[i] > 2) {
-                return false;
-            }
-        }
-        if (Arrays.asList(ar).contains(1) && Arrays.asList(ar).contains(2)) {
-            return true;
-        } else {
-            return false;
-        }
+        return (Arrays.asList(ar).contains(1) && Arrays.asList(ar).contains(2));
     }
 
 }
