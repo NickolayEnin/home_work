@@ -39,6 +39,7 @@ CREATE TABLE student (
 	"name" varchar(200) NOT NULL,
 	test_id int8 NOT NULL,
 	time_of_delivery time NOT NULL,
+	result_test int4 NULL,
 	CONSTRAINT test_primary_key PRIMARY KEY (id)
 );
 
