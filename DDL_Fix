@@ -71,6 +71,7 @@ ALTER TABLE public.question ADD CONSTRAINT question_test_fk FOREIGN KEY (test_id
 -- public.student внешние включи
 
 ALTER TABLE public.student ADD CONSTRAINT student_test_fk FOREIGN KEY (test_id) REFERENCES test(id);
+ALTER TABLE public.student ADD CONSTRAINT student_test_result FOREIGN KEY (result_test) REFERENCES test(id);
 
 
 -- public.test внешние включи
