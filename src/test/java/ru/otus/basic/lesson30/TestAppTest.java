@@ -3,6 +3,7 @@ package ru.otus.basic.lesson30;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import ru.otus.basic.lesson30.TestApp;
 
 public class TestAppTest {
     private TestApp testApp;
