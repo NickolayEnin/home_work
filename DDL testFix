@@ -2,8 +2,6 @@
 
 CREATE SCHEMA public AUTHORIZATION pg_database_owner;
 
-COMMENT ON SCHEMA public IS 'standard public schema';
-
 -- DROP SEQUENCE public.answers_id_seq;
 
 CREATE SEQUENCE public.answers_id_seq
@@ -24,6 +22,21 @@ CREATE SEQUENCE public.question_id_seq
 	NO CYCLE;
 -- DROP SEQUENCE public.role_id_seq;
 
+CREATE SEQUENCE public.role_id_seq
+	MINVALUE 0
+	NO MAXVALUE
+	START 0
+	NO CYCLE;
+-- DROP SEQUENCE public.student_answers_id_seq;
+
+CREATE SEQUENCE public.student_answers_id_seq
+	INCREMENT BY 1
+	MINVALUE 1
+	MAXVALUE 9223372036854775807
+	START 1
+	CACHE 1
+	NO CYCLE;
+-- DROP SEQUENCE public.student_id_seq;
 
 CREATE SEQUENCE public.student_id_seq
 	INCREMENT BY 1
@@ -40,11 +53,16 @@ CREATE SEQUENCE public.test_id_seq
 	MAXVALUE 9223372036854775807
 	START 1
 	CACHE 1
-	NO CYCLE;-- public."role" определение
+	NO CYCLE;
+-- DROP SEQUENCE public.test_student_id_seq;
 
--- Drop table
-
--- public.answers определение
+CREATE SEQUENCE public.test_student_id_seq
+	INCREMENT BY 1
+	MINVALUE 1
+	MAXVALUE 2147483647
+	START 1
+	CACHE 1
+	NO CYCLE;-- public.answers определение
 
 -- Drop table
 
@@ -91,6 +109,23 @@ CREATE TABLE student (
 );
 
 
+-- public.student_answers определение
+
+-- Drop table
+
+-- DROP TABLE student_answers;
+
+CREATE TABLE student_answers (
+	id int8 GENERATED ALWAYS AS IDENTITY( INCREMENT BY 1 MINVALUE 1 MAXVALUE 9223372036854775807 START 1 CACHE 1 NO CYCLE) NOT NULL,
+	student_id int4 NULL,
+	answer_id int4 NULL,
+	test_id int4 NULL,
+	question_id int4 NULL,
+	"result" int4 NULL,
+	CONSTRAINT student_answers_pk PRIMARY KEY (id)
+);
+
+
 -- public.test определение
 
 -- Drop table
@@ -112,26 +147,10 @@ CREATE TABLE test (
 -- DROP TABLE test_student;
 
 CREATE TABLE test_student (
-	id int4 GENERATED ALWAYS AS IDENTITY NOT NULL,
+	id int4 GENERATED ALWAYS AS IDENTITY( INCREMENT BY 1 MINVALUE 1 MAXVALUE 2147483647 START 1 CACHE 1 NO CYCLE) NOT NULL,
 	student_id int8 NULL,
 	test_id int8 NULL,
 	CONSTRAINT test_student_pk PRIMARY KEY (id)
-);
-
-
--- public.student_answers определение
-
--- Drop table
-
--- DROP TABLE student_answers;
-
-CREATE TABLE student_answers (
-	id int8 GENERATED ALWAYS AS IDENTITY NOT NULL,
-	student_id int4 NULL,
-	answer_id int4 NULL,
-	test_id int4 NULL,
-	question_id int4 NULL,
-	CONSTRAINT student_answers_pk PRIMARY KEY (id)
 );
 
 
@@ -151,6 +170,14 @@ ALTER TABLE public.student ADD CONSTRAINT student_test_result FOREIGN KEY (resul
 ALTER TABLE public.student ADD CONSTRAINT student_test_student_fk FOREIGN KEY (student_test_id) REFERENCES test_student(id);
 
 
+-- public.student_answers внешние включи
+
+ALTER TABLE public.student_answers ADD CONSTRAINT student_answers_answers_fk FOREIGN KEY (answer_id) REFERENCES answers(id);
+ALTER TABLE public.student_answers ADD CONSTRAINT student_answers_question_fk FOREIGN KEY (question_id) REFERENCES question(id);
+ALTER TABLE public.student_answers ADD CONSTRAINT student_answers_student_fk FOREIGN KEY (student_id) REFERENCES student(id);
+ALTER TABLE public.student_answers ADD CONSTRAINT student_answers_test_fk FOREIGN KEY (test_id) REFERENCES test(id);
+
+
 -- public.test внешние включи
 
 ALTER TABLE public.test ADD CONSTRAINT test_test_student_fk FOREIGN KEY (student_test_id) REFERENCES test_student(id);
@@ -160,11 +187,3 @@ ALTER TABLE public.test ADD CONSTRAINT test_test_student_fk FOREIGN KEY (student
 
 ALTER TABLE public.test_student ADD CONSTRAINT test_student_student_fk FOREIGN KEY (id) REFERENCES student(id);
 ALTER TABLE public.test_student ADD CONSTRAINT test_student_test_fk FOREIGN KEY (id) REFERENCES test(id);
-
-
--- public.student_answers внешние включи
-
-ALTER TABLE public.student_answers ADD CONSTRAINT student_answers_answers_fk FOREIGN KEY (answer_id) REFERENCES answers(id);
-ALTER TABLE public.student_answers ADD CONSTRAINT student_answers_question_fk FOREIGN KEY (question_id) REFERENCES question(id);
-ALTER TABLE public.student_answers ADD CONSTRAINT student_answers_student_fk FOREIGN KEY (student_id) REFERENCES student(id);
-ALTER TABLE public.student_answers ADD CONSTRAINT student_answers_test_fk FOREIGN KEY (test_id) REFERENCES test(id);
