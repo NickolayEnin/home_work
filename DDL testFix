@@ -118,7 +118,7 @@ CREATE TABLE student (
 CREATE TABLE student_answers (
 	id int8 GENERATED ALWAYS AS IDENTITY( INCREMENT BY 1 MINVALUE 1 MAXVALUE 9223372036854775807 START 1 CACHE 1 NO CYCLE) NOT NULL,
 	student_id int4 NULL,
-	answer_id int4 NULL,
+	answers_student int4 NULL,
 	test_id int4 NULL,
 	question_id int4 NULL,
 	"result" int4 NULL,
@@ -172,7 +172,6 @@ ALTER TABLE public.student ADD CONSTRAINT student_test_student_fk FOREIGN KEY (s
 
 -- public.student_answers внешние включи
 
-ALTER TABLE public.student_answers ADD CONSTRAINT student_answers_answers_fk FOREIGN KEY (answer_id) REFERENCES answers(id);
 ALTER TABLE public.student_answers ADD CONSTRAINT student_answers_question_fk FOREIGN KEY (question_id) REFERENCES question(id);
 ALTER TABLE public.student_answers ADD CONSTRAINT student_answers_student_fk FOREIGN KEY (student_id) REFERENCES student(id);
 ALTER TABLE public.student_answers ADD CONSTRAINT student_answers_test_fk FOREIGN KEY (test_id) REFERENCES test(id);
